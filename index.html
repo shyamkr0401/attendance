@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance Management System</title>
+</head>
+<body>
+    <h1>Attendance Management System</h1>
+    <form action="/save_attendance" method="post">
+        <label for="date">Select Date:</label>
+        <input type="date" id="date" name="date" required><br><br>
+
+        <label>Students:</label><br>
+        {% for student in students %}
+            <input type="checkbox" name="present" value="{{ student }}"> {{ student }}<br>
+        {% endfor %}
+        <br>
+
+        <input type="submit" value="Save Attendance">
+    </form>
+    <br>
+    <a href="/view_attendance">View Attendance</a>
+</body>
+</html>
